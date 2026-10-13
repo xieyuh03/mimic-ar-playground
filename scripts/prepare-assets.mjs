@@ -11,6 +11,8 @@ const modelDir = path.join(publicDir, 'models');
 const wasmDir = path.join(publicDir, 'vendor/wasm');
 await fs.mkdir(modelDir, { recursive: true });
 await fs.mkdir(wasmDir, { recursive: true });
+await fs.copyFile(path.join(root, 'licenses/Apache-2.0.txt'), path.join(publicDir, 'vendor/Apache-2.0.txt'));
+await fs.copyFile(path.join(root, 'THIRD_PARTY_NOTICES.md'), path.join(publicDir, 'vendor/THIRD_PARTY_NOTICES.txt'));
 
 for (const name of await fs.readdir(path.join(vendor, 'wasm'))) {
   if (/\.(js|wasm)$/.test(name)) {

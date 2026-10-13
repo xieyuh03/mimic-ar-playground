@@ -2,6 +2,8 @@
 
 The application uses MediaPipe Tasks Vision version 0.10.32, distributed by Google under the Apache License 2.0. Its bundled legal notices are retained in the compiled worker.
 
+A full copy of the applicable third-party license is included in [licenses/Apache-2.0.txt](./licenses/Apache-2.0.txt). The deployed site includes `vendor/Apache-2.0.txt` and `vendor/THIRD_PARTY_NOTICES.txt` alongside the distributed components. This notice identifies the third-party component's license; it does not by itself assign that license to independent application code.
+
 - Project: https://github.com/google-ai-edge/mediapipe
 - Package: https://www.npmjs.com/package/@mediapipe/tasks-vision/v/0.10.32
 - Face Landmarker documentation: https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker/web_js
