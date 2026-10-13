@@ -1,0 +1,11 @@
+node_modules/
+dist/
+public/models/
+public/vendor/
+public/vision-worker.js
+playwright-report/
+test-results/
+.DS_Store
+.env
+.env.*
+!.env.example

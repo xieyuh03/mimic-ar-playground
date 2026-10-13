@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121119" />
+    <meta name="description" content="MIMIC 表情气象台：微笑成雨，大笑成烟花。浏览器本地人脸识别与头部粒子碰撞实验。" />
+    <title>MIMIC — 表情气象台</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="MIMIC 首页"><span class="brand-mark">m</span>MIMIC<span class="brand-dot">LAB</span></a>
+        <div class="project-tag">EXPRESSION PLAYGROUND <span>实验 001</span></div>
+        <span class="privacy-badge"><i></i>影像只留在你的设备</span>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <div class="eyebrow"><span></span>一场由你发起的好天气</div>
+            <h1>笑容，是一种<span class="serif">超能力。</span></h1>
+          </div>
+          <p class="hero-copy">微笑，让雨落下。大笑，让烟花绽放。<br />动一动头，接住这份快乐。</p>
+        </section>
+
+        <div class="workspace">
+          <section class="view-card" aria-label="AR 摄像头与特效画面">
+            <div class="stage" id="stage" data-mode="idle">
+              <video id="camera" autoplay muted playsinline aria-label="本地摄像头画面"></video>
+              <div class="stage-wash"></div>
+              <div class="stage-top">
+                <span class="live-badge" id="mode-badge"><i></i>等待开启</span>
+                <span class="stage-tag">YOUR FACE. YOUR UNIVERSE.</span>
+              </div>
+              <div class="welcome" id="welcome">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <span class="floating-star star-one">✳</span>
+                <span class="floating-star star-two">✦</span>
+                <span class="floating-star star-three">+</span>
+                <div class="smiley-orb"><div class="orb-eyes"><i></i><i></i></div><div class="orb-mouth"></div><span class="orb-shine"></span></div>
+                <div class="welcome-copy"><span>HELLO, HAPPY HUMAN.</span><h2>今天的天气，由你决定。</h2><p>开启摄像头，给世界一个笑容。</p></div>
+              </div>
+              <canvas id="effects" aria-label="雨滴、烟花及头部碰撞特效"></canvas>
+              <div class="loading-overlay" id="loading-overlay" hidden><span class="loader"></span><strong>正在准备你的超能力</strong><p>首次加载本地模型可能需要片刻</p></div>
+              <div class="stage-bottom">
+                <div class="expression-pill" id="expression-pill" data-expression="neutral"><span id="weather-icon">○</span><div><small id="state-label">READY WHEN YOU ARE</small><strong id="state-title">等你一个笑容</strong></div></div>
+                <span id="tracking-label">摄像头尚未开启</span>
+              </div>
+            </div>
+            <div class="stage-footnote"><span><i class="tiny-dot"></i><span id="stage-caption">不录制 · 不上传 · 无需登录</span></span><span class="version">LOCAL-FIRST / V.01</span></div>
+          </section>
+
+          <aside class="controls">
+            <section class="control-card intro-card">
+              <div class="card-heading"><span class="section-number">01 / CONNECT</span><span class="pill">REAL-TIME AR</span></div>
+              <h2>让表情接管屏幕</h2>
+              <p class="muted">正对镜头，保持单人入镜。首次识别后，放松表情约 2 秒完成校准。</p>
+              <button id="camera-button" class="button primary"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="m16 10 5-3v10l-5-3" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span id="camera-button-label">开启摄像头</span><span class="button-arrow">↗</span></button>
+              <p class="permission-note">需要摄像头权限，不需要麦克风权限。</p>
+              <div id="status-message" class="status-message" role="status" aria-live="polite">也可以先用下方演示模式感受特效。</div>
+              <div id="error-message" class="error-message" role="alert" hidden></div>
+            </section>
+
+            <section class="control-card signals-card">
+              <div class="card-heading"><span class="section-number">02 / EXPRESSION</span><span id="signal-status" class="signal-status">未连接</span></div>
+              <div class="signal-row"><div class="signal-icon rain-icon">〰</div><div class="signal-body"><div><strong>微笑</strong><span class="signal-output">细雨降临</span><output id="smile-value" aria-live="off">0%</output></div><div class="meter"><span id="smile-meter"></span></div></div></div>
+              <div class="signal-row"><div class="signal-icon fire-icon">✳</div><div class="signal-body"><div><strong>大笑</strong><span class="signal-output">烟花绽放</span><output id="jaw-value" aria-live="off">0%</output></div><div class="meter warm"><span id="jaw-meter"></span></div></div></div>
+              <p class="signal-note">大笑判定结合微笑、张嘴与脸颊动作；不是仅凭张嘴，也不识别笑声。</p>
+              <div class="mini-actions"><button id="calibrate-button" disabled>重新校准</button><span id="calibration-label">使用默认阈值</span></div>
+            </section>
+
+            <section class="control-card play-card">
+              <div class="card-heading"><span class="section-number">03 / PLAY A LITTLE</span><span class="demo-label">无需摄像头</span></div>
+              <div class="demo-buttons"><button id="demo-rain"><span>↙</span>体验雨幕</button><button id="demo-fireworks"><span>✳</span>体验烟花</button></div>
+              <p class="muted small">演示模式可拖动虚拟头像观察粒子反弹，不能代替真实表情识别验收。</p>
+              <div class="toggles"><label><input id="show-collider" type="checkbox" /><span>显示碰撞轮廓</span></label><label><input id="reduced-motion" type="checkbox" /><span>低动态模式</span></label></div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="telemetry" aria-label="实时性能统计">
+          <div class="telemetry-title"><span class="tiny-dot"></span>轻一点，也好玩一点<span>PERFORMANCE, NOT PROMISES.</span></div>
+          <div class="stat"><output id="fps-value" aria-live="off">—</output><span>渲染 FPS</span></div>
+          <div class="stat"><output id="particles-value" aria-live="off">0</output><span>活跃粒子 / <span id="particle-cap">720</span></span></div>
+          <div class="stat"><output id="inference-value" aria-live="off">—</output><span>推理耗时 ms</span></div>
+          <div class="stat"><output id="collisions-value" aria-live="off">0</output><span>粒子碰撞次数</span></div>
+          <span id="quality-label" class="quality-label">自动画质</span>
+        </section>
+
+        <section class="how-it-works" aria-label="体验说明">
+          <div><span class="step-glyph">☺</span><p><strong>01. 轻轻微笑</strong><span>笑容持续片刻，雨滴随之落下。</span></p></div>
+          <div><span class="step-glyph">✳</span><p><strong>02. 放声大笑</strong><span>微笑并张大嘴，烟花有节奏地绽放。</span></p></div>
+          <div><span class="step-glyph">↔</span><p><strong>03. 摇摇脑袋</strong><span>头部是会移动的屏幕空间碰撞体。</span></p></div>
+        </section>
+      </main>
+      <footer><span>MIMIC <span class="footer-divider">/</span> 让技术，接住一点情绪。<a href="https://github.com/xieyuh03/mimic-ar-playground" target="_blank" rel="noopener noreferrer">源代码 ↗</a></span><span>推荐新版 Chrome、Edge、Safari · 不支持后台识别</span></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

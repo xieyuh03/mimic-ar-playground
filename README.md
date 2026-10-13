@@ -2,6 +2,10 @@
 
 一个本地优先、无需后端的 AR 互动原型：微笑下雨，张嘴大笑触发烟花，烟花与跟随头部的屏幕空间椭圆碰撞体反弹。
 
+**在线体验：** https://xieyuh03.github.io/mimic-ar-playground/
+
+**公开源码：** https://github.com/xieyuh03/mimic-ar-playground
+
 ## 运行
 
 需要 Node.js 22.12 或更高版本。
