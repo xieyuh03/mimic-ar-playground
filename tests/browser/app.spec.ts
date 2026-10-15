@@ -59,6 +59,7 @@ test('actual local model and fake camera initialize; no-face state is honest; st
   await page.locator('#camera-button').click();
   await expect(page.locator('#stage')).toHaveAttribute('data-mode', 'camera', { timeout: 35000 });
   await expect(page.locator('#stage')).toHaveAttribute('data-model-ready', 'true');
+  expect(page.workers()[0]?.url()).toMatch(/vision-worker\.js\?rev=[a-f0-9]{16}$/);
   await expect.poll(async () => Number(await page.locator('#stage').getAttribute('data-inference-frames')), { timeout: 15000 }).toBeGreaterThan(3);
   await expect(page.locator('#stage')).toHaveAttribute('data-max-in-flight', '1');
   await expect(page.locator('#tracking-label')).toContainText('未检测到人脸');

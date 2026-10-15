@@ -9,6 +9,8 @@ import { CalibrationSampler } from './core/calibration';
 import type { CalibrationMode } from './core/calibration';
 import type { FaceMetrics, VisionRequest, VisionResponse } from './protocol';
 
+declare const __VISION_WORKER_REVISION__: string;
+
 function element<T extends HTMLElement>(id: string, type: { new(): T }): T {
   const result = document.getElementById(id);
   if (!(result instanceof type)) throw new Error(`Missing UI element: ${id}`);
@@ -214,7 +216,9 @@ function explainCameraError(error: unknown): string {
 function loadVision(currentSession: number): Promise<void> {
   return new Promise((resolve, reject) => {
     const base = new URL(import.meta.env.BASE_URL, document.baseURI);
-    const instance = new Worker(new URL('vision-worker.js', base));
+    const workerUrl = new URL('vision-worker.js', base);
+    workerUrl.searchParams.set('rev', __VISION_WORKER_REVISION__);
+    const instance = new Worker(workerUrl);
     worker = instance;
     let initializing = true;
     const complete = (): void => {
