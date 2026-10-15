@@ -1,4 +1,5 @@
 import { FaceLandmarker, FilesetResolver } from '@mediapipe/tasks-vision';
+import { mouthGeometry } from './core/mouth-geometry';
 import type { FaceMetrics, HeadPoints, VisionRequest, VisionResponse } from './protocol';
 
 let detector: FaceLandmarker | null = null;
@@ -46,6 +47,7 @@ self.onmessage = async (event: MessageEvent<VisionRequest>) => {
         smile: (score('mouthSmileLeft') + score('mouthSmileRight')) / 2,
         jaw: score('jawOpen'),
         cheek: (score('cheekSquintLeft') + score('cheekSquintRight')) / 2,
+        mouth: mouthGeometry(landmarks, message.bitmap.width, message.bitmap.height),
       };
       const point = (index: number) => {
         const item = landmarks[index];

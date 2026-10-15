@@ -3,10 +3,16 @@ export interface Point {
   y: number;
 }
 
+export interface MouthGeometry {
+  openRatio: number;
+  widthRatio: number;
+}
+
 export interface FaceMetrics {
   smile: number;
   jaw: number;
   cheek: number;
+  mouth?: MouthGeometry | null;
 }
 
 export interface HeadPoints {

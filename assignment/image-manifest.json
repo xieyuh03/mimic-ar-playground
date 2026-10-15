@@ -1,0 +1,146 @@
+{
+  "purpose": "Assessment reference images supplied by the user; the user confirmed public redistribution authorization on 2026-10-15. No independent authorship or additional downstream licensing claim is made.",
+  "excludes": "Signed source URLs, credentials, private publication state and webcam recordings are not included.",
+  "images": [
+    {
+      "id": "01",
+      "original": "images/01.png",
+      "preview": "previews/01.jpg",
+      "bytes": 670598,
+      "sha256": "5e041242d34a3d7a121a7ec90b38192af1287810fcbcd53b1ec453651b71b101"
+    },
+    {
+      "id": "02",
+      "original": "images/02.jpg",
+      "preview": "previews/02.jpg",
+      "bytes": 599780,
+      "sha256": "3f8ae68234d283ef2e2d6948e0b592c5195f5ed8ae860eb7457876c6993631ec"
+    },
+    {
+      "id": "03",
+      "original": "images/03.png",
+      "preview": "previews/03.jpg",
+      "bytes": 1356507,
+      "sha256": "52dc14d9988b08f24dad438924ce3d53d1038a1651b7a1b05baa30fb2c729aa2"
+    },
+    {
+      "id": "04",
+      "original": "images/04.jpg",
+      "preview": "previews/04.jpg",
+      "bytes": 638097,
+      "sha256": "895b36a9f9429ac759ca550e427380c2e8b0364feb69ba5b62bd1ed34ca6480e"
+    },
+    {
+      "id": "05",
+      "original": "images/05.png",
+      "preview": "previews/05.jpg",
+      "bytes": 8521249,
+      "sha256": "3b24ecc7853ba662cb553a1901cbd89b1e2c8a42005841bf1a701128e2246f46"
+    },
+    {
+      "id": "06",
+      "original": "images/06.png",
+      "preview": "previews/06.jpg",
+      "bytes": 1873048,
+      "sha256": "554ba04542eb0a6e11d7dec2369f428c6c3f0dd8318562cd0e0eddcfb93a55b6"
+    },
+    {
+      "id": "07",
+      "original": "images/07.png",
+      "preview": "previews/07.jpg",
+      "bytes": 3542980,
+      "sha256": "8a8731f7a378161efe7fd1f116a3cf8f3585a4a9fe4a0463c056f5c6b91f5c2c"
+    },
+    {
+      "id": "08",
+      "original": "images/08.png",
+      "preview": "previews/08.jpg",
+      "bytes": 2190706,
+      "sha256": "e293aa8c2015c386f95e38604252a2b4b2722ae16008350611a022740708b355"
+    },
+    {
+      "id": "09",
+      "original": "images/09.png",
+      "preview": "previews/09.jpg",
+      "bytes": 1186681,
+      "sha256": "fbf5d698f38cabd4923df604aaa212da5033d22f1a820072fecb73d884325a42"
+    },
+    {
+      "id": "10",
+      "original": "images/10.png",
+      "preview": "previews/10.jpg",
+      "bytes": 2305258,
+      "sha256": "3a71f5fc35bf6913ed0841047dc6182e0a352160626db6b2ab677b8d117edd24"
+    },
+    {
+      "id": "11",
+      "original": "images/11.png",
+      "preview": "previews/11.jpg",
+      "bytes": 2524019,
+      "sha256": "b8501fad12edc8de4cfb21685ec5b1b20bd99d87cba9694fb8cb29c14da397f1"
+    },
+    {
+      "id": "12",
+      "original": "images/12.png",
+      "preview": "previews/12.jpg",
+      "bytes": 1196994,
+      "sha256": "45ad039c0fd2c851e38a275413b67bfc85d6b712abb7aca3df8d9131be2351c9"
+    },
+    {
+      "id": "13",
+      "original": "images/13.png",
+      "preview": "previews/13.jpg",
+      "bytes": 3345669,
+      "sha256": "301f5bf9d5b232b689be7cdb08748bfca4bcecc40a8d880f90c118a29f703a87"
+    },
+    {
+      "id": "14",
+      "original": "images/14.png",
+      "preview": "previews/14.jpg",
+      "bytes": 1506528,
+      "sha256": "b6b55211f2dd47f77ad16fcf6235acc60c246fe28abf2ec79e7d71d9fa7871c7"
+    },
+    {
+      "id": "15",
+      "original": "images/15.png",
+      "preview": "previews/15.jpg",
+      "bytes": 3614931,
+      "sha256": "201fe945bc4c3b0274f0ae856d50255cb85d1b91bc54a9aa9b599c95798c4510"
+    },
+    {
+      "id": "16",
+      "original": "images/16.png",
+      "preview": "previews/16.jpg",
+      "bytes": 2148823,
+      "sha256": "5e809862eefed9f74461b942726ed9a319172502cd3d79f26020e2ed12f09e1c"
+    },
+    {
+      "id": "17",
+      "original": "images/17.png",
+      "preview": "previews/17.jpg",
+      "bytes": 6148398,
+      "sha256": "4364dfccec41ab7f44dbe7e1db73f4527e444370eeba30f782d02f53819d1583"
+    },
+    {
+      "id": "18",
+      "original": "images/18.png",
+      "preview": "previews/18.jpg",
+      "bytes": 2900155,
+      "sha256": "558ab961545756b84b03290d3c99ba8fbdc5ccc3f517dfa7cdbd57a3740d6551"
+    },
+    {
+      "id": "19",
+      "original": "images/19.png",
+      "preview": "previews/19.jpg",
+      "bytes": 3043885,
+      "sha256": "5a61e3fda9c13dd63571a2864a270edda3777d99c5573c37171cf2d17c1ba5b9"
+    },
+    {
+      "id": "20",
+      "original": "images/20.png",
+      "preview": "previews/20.jpg",
+      "bytes": 13557402,
+      "sha256": "809bc46e672483463f10ee5a8dadb3e1229cb87747ba0b20ea6b30f8413598e7"
+    }
+  ]
+}

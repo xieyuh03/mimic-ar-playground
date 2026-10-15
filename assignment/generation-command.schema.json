@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gift generation command proposal",
+  "description": "Design revision v0.2 (2026-10-15), command protocol 1.0. Validate action branches server-side. Authorization, regional allowlists, reference truth, retry counters and budgets additionally require trusted-state checks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "action",
+    "reason_code",
+    "rule_ids",
+    "evidence_ids",
+    "tool_call",
+    "repair"
+  ],
+  "oneOf": [
+    {
+      "properties": {
+        "action": {
+          "const": "GENERATE"
+        },
+        "reason_code": {
+          "const": "NONE"
+        },
+        "rule_ids": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1
+        },
+        "tool_call": {
+          "type": "object"
+        },
+        "repair": {
+          "const": {
+            "remove_motif_ids": [],
+            "replacement_motif_ids": []
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "RETRY_SAFE"
+        },
+        "reason_code": {
+          "const": "RELIGIOUS_POLICY"
+        },
+        "rule_ids": {
+          "type": "array",
+          "minItems": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1
+        },
+        "tool_call": {
+          "type": "object"
+        },
+        "repair": {
+          "type": "object",
+          "properties": {
+            "remove_motif_ids": {
+              "type": "array",
+              "minItems": 1
+            },
+            "replacement_motif_ids": {
+              "type": "array",
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "RETRY_SAFE"
+        },
+        "reason_code": {
+          "const": "INVALID_GEOMETRY"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1
+        },
+        "tool_call": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "properties": {
+        "action": {
+          "const": "ESCALATE"
+        },
+        "reason_code": {
+          "not": {
+            "const": "NONE"
+          }
+        },
+        "tool_call": {
+          "type": "null"
+        },
+        "repair": {
+          "const": {
+            "remove_motif_ids": [],
+            "replacement_motif_ids": []
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["GENERATE", "RETRY_SAFE", "ESCALATE"]
+    },
+    "reason_code": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "RELIGIOUS_POLICY",
+        "UNKNOWN_CULTURE",
+        "INVALID_GEOMETRY",
+        "BUDGET_EXHAUSTED",
+        "RETRY_EXHAUSTED",
+        "UNSUPPORTED_REQUEST"
+      ]
+    },
+    "rule_ids": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "tool_call": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "arguments"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "const": "generate_gift_asset"
+            },
+            "arguments": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "region_id",
+                "asset_spec_id",
+                "policy_version",
+                "motif_ids",
+                "geometry_template_id",
+                "material_preset_id",
+                "palette_hex",
+                "visual_brief",
+                "negative_rule_ids",
+                "output_format"
+              ],
+              "properties": {
+                "region_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96
+                },
+                "asset_spec_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "policy_version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96
+                },
+                "motif_ids": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 8,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  }
+                },
+                "geometry_template_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "material_preset_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "palette_hex": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 6,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^#[0-9A-Fa-f]{6}$"
+                  }
+                },
+                "visual_brief": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 800
+                },
+                "negative_rule_ids": {
+                  "type": "array",
+                  "maxItems": 32,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  }
+                },
+                "output_format": {
+                  "type": "string",
+                  "const": "glb"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "repair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["remove_motif_ids", "replacement_motif_ids"],
+      "properties": {
+        "remove_motif_ids": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "replacement_motif_ids": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    }
+  }
+}

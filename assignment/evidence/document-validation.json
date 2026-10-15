@@ -1,0 +1,9 @@
+{
+  "recordedAt": "2026-10-15T10:02:49.361Z",
+  "schema": "Draft 2020-12, Ajv strict mode",
+  "validCases": 3,
+  "rejectedInvalidCases": 11,
+  "scoreRows": 20,
+  "retrospectiveCharacters": 122,
+  "scope": "Structure/cross-field invariants and arithmetic only; trusted regional permissions, human aesthetics and live production remain separate."
+}

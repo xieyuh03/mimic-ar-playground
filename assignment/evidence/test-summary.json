@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-10-15T10:02:49.172Z",
+  "unitTests": 112,
+  "browserTests": 21,
+  "unitFiles": [
+    {
+      "file": "tests/calibration.test.ts",
+      "tests": 6,
+      "status": "passed"
+    },
+    {
+      "file": "tests/expression.test.ts",
+      "tests": 71,
+      "status": "passed"
+    },
+    {
+      "file": "tests/geometry.test.ts",
+      "tests": 10,
+      "status": "passed"
+    },
+    {
+      "file": "tests/mouth-geometry.test.ts",
+      "tests": 6,
+      "status": "passed"
+    },
+    {
+      "file": "tests/particles.test.ts",
+      "tests": 19,
+      "status": "passed"
+    }
+  ],
+  "browserDurationMs": 59664.518,
+  "typecheck": "passed",
+  "productionBuild": "passed",
+  "scope": "Synthetic unit and real processing-path browser regressions plus real model/local image-stream checks. Not human accuracy or real-phone certification."
+}

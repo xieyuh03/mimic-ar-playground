@@ -1,0 +1,27 @@
+{
+  "pages": 31,
+  "characters": 31638,
+  "clickableLinks": [
+    "https://xieyuh03.github.io/mimic-ar-playground/",
+    "https://github.com/xieyuh03/mimic-ar-playground",
+    "https://github.com/xieyuh03/mimic-ar-playground/actions/workflows/deploy.yml"
+  ],
+  "samples": [
+    {
+      "page": 1,
+      "label": "cover"
+    },
+    {
+      "page": 22,
+      "label": "scores"
+    },
+    {
+      "page": 27,
+      "label": "effects"
+    },
+    {
+      "page": 28,
+      "label": "gallery"
+    }
+  ]
+}

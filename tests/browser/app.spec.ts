@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { installVisionFixture } from './vision-fixture';
 
 test('desktop entry, manual rain and capped fireworks with physical collisions', async ({ page }, testInfo) => {
   const errors: string[] = [];
@@ -84,6 +85,22 @@ test('model download failure shows an error rather than silently falling back', 
   await page.locator('#camera-button').click();
   await expect(page.locator('#error-message')).toBeVisible({ timeout: 35000 });
   await expect(page.locator('#stage')).toHaveAttribute('data-mode', 'error');
+});
+
+test('cancelling model initialization cannot revive a stopped camera session', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await installVisionFixture(page, 1200);
+  await page.goto('/');
+  await page.locator('#camera-button').click();
+  await expect(page.locator('#stage')).toHaveAttribute('data-mode', 'loading');
+  await page.waitForTimeout(150);
+  await page.locator('#camera-button').click();
+  await expect(page.locator('#stage')).toHaveAttribute('data-mode', 'idle');
+  await page.waitForTimeout(1400);
+  await expect(page.locator('#stage')).toHaveAttribute('data-mode', 'idle');
+  await expect(page.locator('#stage')).toHaveAttribute('data-model-ready', 'false');
+  expect(errors).toEqual([]);
 });
 
 test('reduced-motion preference is respected', async ({ page }) => {

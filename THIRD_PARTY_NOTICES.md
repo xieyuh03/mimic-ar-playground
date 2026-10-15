@@ -13,4 +13,4 @@ The model is fetched from Google's published MediaPipe model distribution during
 
 Vite, TypeScript, esbuild, Vitest, Playwright and marked are development dependencies. Their applicable license texts are distributed with the respective packages and remain subject to those licenses.
 
-No assessment images or third-party portrait photographs are distributed by this repository.
+The `assignment/images` and `assignment/previews` directories contain the assessment references supplied by the user. On 2026-10-15 the submitting user explicitly confirmed authorization for public redistribution. These images are not claimed as original application artwork, and the Apache license for MediaPipe does not license those images. The source-number mapping and SHA-256 hashes are preserved in `assignment/image-manifest.json`; signed download URLs are not distributed. Further commercial uses may require separate permissions and context-specific review.

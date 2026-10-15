@@ -5,6 +5,7 @@ public/vendor/
 public/vision-worker.js
 playwright-report/
 test-results/
+reports/
 .DS_Store
 .env
 .env.*

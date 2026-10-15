@@ -1,0 +1,69 @@
+{
+  "scope": "Identical synthetic coefficient traces, not human accuracy estimates",
+  "results": [
+    {
+      "name": "moderate_open_smile_low_cheek",
+      "metrics": {
+        "smile": 0.48,
+        "jaw": 0.38,
+        "cheek": 0.025
+      },
+      "before": {
+        "state": "smile",
+        "bursts": 0
+      },
+      "after": {
+        "state": "laugh",
+        "bursts": 2
+      }
+    },
+    {
+      "name": "strong_smile_open_mouth_low_cheek",
+      "metrics": {
+        "smile": 0.68,
+        "jaw": 0.31,
+        "cheek": 0.03
+      },
+      "before": {
+        "state": "smile",
+        "bursts": 0
+      },
+      "after": {
+        "state": "laugh",
+        "bursts": 2
+      }
+    },
+    {
+      "name": "ordinary_closed_smile",
+      "metrics": {
+        "smile": 0.78,
+        "jaw": 0.06,
+        "cheek": 0.2
+      },
+      "before": {
+        "state": "smile",
+        "bursts": 0
+      },
+      "after": {
+        "state": "smile",
+        "bursts": 0
+      }
+    },
+    {
+      "name": "jaw_only_yawn",
+      "metrics": {
+        "smile": 0.08,
+        "jaw": 0.85,
+        "cheek": 0.02
+      },
+      "before": {
+        "state": "neutral",
+        "bursts": 0
+      },
+      "after": {
+        "state": "neutral",
+        "bursts": 0
+      }
+    }
+  ]
+}

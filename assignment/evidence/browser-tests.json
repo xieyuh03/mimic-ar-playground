@@ -1,0 +1,128 @@
+[
+  {
+    "file": "app.spec.ts",
+    "title": "desktop entry, manual rain and capped fireworks with physical collisions",
+    "status": "expected",
+    "durationMs": 3064
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "mobile layout does not overflow and supports pointer movement",
+    "status": "expected",
+    "durationMs": 464
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "camera denial is explicit and does not pretend the demo is live",
+    "status": "expected",
+    "durationMs": 133
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "actual local model and fake camera initialize; no-face state is honest; stopping releases tracks",
+    "status": "expected",
+    "durationMs": 1406
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "model download failure shows an error rather than silently falling back",
+    "status": "expected",
+    "durationMs": 488
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "cancelling model initialization cannot revive a stopped camera session",
+    "status": "expected",
+    "durationMs": 1752
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "reduced-motion preference is respected",
+    "status": "expected",
+    "durationMs": 3008
+  },
+  {
+    "file": "app.spec.ts",
+    "title": "records a real animation-frame sample under continuous fireworks",
+    "status": "expected",
+    "durationMs": 4119
+  },
+  {
+    "file": "effects-visibility.spec.ts",
+    "title": "visible layered rain and fireworks at 1440px",
+    "status": "expected",
+    "durationMs": 2216
+  },
+  {
+    "file": "effects-visibility.spec.ts",
+    "title": "visible layered rain and fireworks at 390px",
+    "status": "expected",
+    "durationMs": 2576
+  },
+  {
+    "file": "effects-visibility.spec.ts",
+    "title": "reduced motion trims existing effects immediately and stop clears queued shells",
+    "status": "expected",
+    "durationMs": 3194
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "real processing path switches low-cheek laughter out of rain without leftover drops",
+    "status": "expected",
+    "durationMs": 3933
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "mouth geometry can trigger fireworks when jaw coefficients are low",
+    "status": "expected",
+    "durationMs": 2863
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "a confirmed brief laugh remains visible long enough for the first rocket to burst",
+    "status": "expected",
+    "durationMs": 3717
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "pure yawning and smile-then-yawning do not become laughter",
+    "status": "expected",
+    "durationMs": 5964
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "short talking-like mouth pulses do not repeatedly set off fireworks",
+    "status": "expected",
+    "durationMs": 5996
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "personal laugh calibration is sampled, applied, and labeled explicitly",
+    "status": "expected",
+    "durationMs": 4097
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "face loss interrupts calibration and removes weather/collider signals",
+    "status": "expected",
+    "durationMs": 3066
+  },
+  {
+    "file": "expression-integration.spec.ts",
+    "title": "visibility changes pause and resume the stream without stale calibration samples",
+    "status": "expected",
+    "durationMs": 4407
+  },
+  {
+    "file": "model-fixture.spec.ts",
+    "title": "real model obtains mouth geometry, calibrates one face and rejects multiple faces",
+    "status": "expected",
+    "durationMs": 2496
+  },
+  {
+    "file": "particle-render.spec.ts",
+    "title": "isolated rendered spark and trail fade toward transparent rather than popping",
+    "status": "expected",
+    "durationMs": 61
+  }
+]

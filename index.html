@@ -11,7 +11,7 @@
     <div class="page">
       <header class="topbar">
         <a class="brand" href="./" aria-label="MIMIC 首页"><span class="brand-mark">m</span>MIMIC<span class="brand-dot">LAB</span></a>
-        <div class="project-tag">EXPRESSION PLAYGROUND <span>实验 001</span></div>
+        <div class="project-tag">EXPRESSION PLAYGROUND <span>实验 002</span></div>
         <span class="privacy-badge"><i></i>影像只留在你的设备</span>
       </header>
 
@@ -31,7 +31,7 @@
               <div class="stage-wash"></div>
               <div class="stage-top">
                 <span class="live-badge" id="mode-badge"><i></i>等待开启</span>
-                <span class="stage-tag">YOUR FACE. YOUR UNIVERSE.</span>
+                <button id="fullscreen-button" class="fullscreen-button" aria-label="放大或退出全屏画面">⛶ 放大画面</button>
               </div>
               <div class="welcome" id="welcome">
                 <div class="orbit orbit-one"></div>
@@ -49,7 +49,7 @@
                 <span id="tracking-label">摄像头尚未开启</span>
               </div>
             </div>
-            <div class="stage-footnote"><span><i class="tiny-dot"></i><span id="stage-caption">不录制 · 不上传 · 无需登录</span></span><span class="version">LOCAL-FIRST / V.01</span></div>
+            <div class="stage-footnote"><span><i class="tiny-dot"></i><span id="stage-caption">不录制 · 不上传 · 无需登录</span></span><span class="version">LOCAL-FIRST / V.02</span></div>
           </section>
 
           <aside class="controls">
@@ -66,14 +66,20 @@
             <section class="control-card signals-card">
               <div class="card-heading"><span class="section-number">02 / EXPRESSION</span><span id="signal-status" class="signal-status">未连接</span></div>
               <div class="signal-row"><div class="signal-icon rain-icon">〰</div><div class="signal-body"><div><strong>微笑</strong><span class="signal-output">细雨降临</span><output id="smile-value" aria-live="off">0%</output></div><div class="meter"><span id="smile-meter"></span></div></div></div>
-              <div class="signal-row"><div class="signal-icon fire-icon">✳</div><div class="signal-body"><div><strong>大笑</strong><span class="signal-output">烟花绽放</span><output id="jaw-value" aria-live="off">0%</output></div><div class="meter warm"><span id="jaw-meter"></span></div></div></div>
-              <p class="signal-note">大笑判定结合微笑、张嘴与脸颊动作；不是仅凭张嘴，也不识别笑声。</p>
-              <div class="mini-actions"><button id="calibrate-button" disabled>重新校准</button><span id="calibration-label">使用默认阈值</span></div>
+              <div class="signal-row"><div class="signal-icon fire-icon">✳</div><div class="signal-body"><div><strong>大笑准备</strong><span class="signal-output">满足后切换烟花</span><output id="jaw-value" aria-live="off">0%</output></div><div class="meter warm"><span id="jaw-meter"></span></div></div></div>
+              <p id="expression-diagnostic" class="signal-note">等待单人入镜。大笑优先，雨幕与烟花互斥。</p>
+              <div id="raw-signals" class="raw-signals">开度是嘴唇间距 / 嘴宽，不是情绪概率。</div>
+              <label class="sensitivity-label" for="laugh-sensitivity"><span>大笑灵敏度</span><output id="sensitivity-value" aria-live="off">50%</output></label>
+              <input id="laugh-sensitivity" class="sensitivity-slider" type="range" min="0" max="100" value="50" step="5" />
+              <div class="sensitivity-hints"><span>更稳健 · 防说话误触</span><span>更灵敏 · 容易触发</span></div>
+              <div class="mini-actions"><button id="calibrate-button" disabled>自然表情校准</button><button id="learn-laugh-button" disabled>学习我的大笑</button></div>
+              <p id="calibration-label" class="calibration-label">使用默认阈值，可按个人表情校准。</p>
             </section>
 
             <section class="control-card play-card">
               <div class="card-heading"><span class="section-number">03 / PLAY A LITTLE</span><span class="demo-label">无需摄像头</span></div>
               <div class="demo-buttons"><button id="demo-rain"><span>↙</span>体验雨幕</button><button id="demo-fireworks"><span>✳</span>体验烟花</button></div>
+              <button id="stop-demo" class="stop-demo" hidden>停止演示</button>
               <p class="muted small">演示模式可拖动虚拟头像观察粒子反弹，不能代替真实表情识别验收。</p>
               <div class="toggles"><label><input id="show-collider" type="checkbox" /><span>显示碰撞轮廓</span></label><label><input id="reduced-motion" type="checkbox" /><span>低动态模式</span></label></div>
             </section>
@@ -91,7 +97,7 @@
 
         <section class="how-it-works" aria-label="体验说明">
           <div><span class="step-glyph">☺</span><p><strong>01. 轻轻微笑</strong><span>笑容持续片刻，雨滴随之落下。</span></p></div>
-          <div><span class="step-glyph">✳</span><p><strong>02. 放声大笑</strong><span>微笑并张大嘴，烟花有节奏地绽放。</span></p></div>
+          <div><span class="step-glyph">✳</span><p><strong>02. 自然大笑</strong><span>嘴角上扬并张嘴，雨停，烟花升空。</span></p></div>
           <div><span class="step-glyph">↔</span><p><strong>03. 摇摇脑袋</strong><span>头部是会移动的屏幕空间碰撞体。</span></p></div>
         </section>
       </main>

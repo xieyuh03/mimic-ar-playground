@@ -1,0 +1,48 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "rain": {
+      "pixelCoverage": 0.02711305675898413,
+      "darkContrastCoverage": 0.02711305675898413,
+      "brightContrastCoverage": 0.0205653972070376,
+      "spanX": 0.9974025974025974,
+      "spanY": 0.9975308641975309,
+      "canvasPixels": 623700
+    },
+    "fireworks": {
+      "pixelCoverage": 0.07003576262087842,
+      "darkContrastCoverage": 0.07003576262087842,
+      "brightContrastCoverage": 0.03988326112761888,
+      "spanX": 0.7116883116883117,
+      "spanY": 0.5160493827160494,
+      "canvasPixels": 623700
+    },
+    "scope": "Procedural effect visibility, not semantic realism or human recognition accuracy"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "rain": {
+      "pixelCoverage": 0.028830266081704747,
+      "darkContrastCoverage": 0.028830266081704747,
+      "brightContrastCoverage": 0.019713976411600477,
+      "spanX": 0.9943181818181818,
+      "spanY": 0.9808102345415778,
+      "canvasPixels": 165088
+    },
+    "fireworks": {
+      "pixelCoverage": 0.12762805538145974,
+      "darkContrastCoverage": 0.12762805538145974,
+      "brightContrastCoverage": 0.07281636373995784,
+      "spanX": 0.9943181818181818,
+      "spanY": 0.7505330490405118,
+      "canvasPixels": 165088
+    },
+    "scope": "Procedural effect visibility, not semantic realism or human recognition accuracy"
+  }
+]

@@ -5,6 +5,7 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   timeout: 45_000,
+  reporter: [['list'], ['json', { outputFile: 'reports/browser-results.json' }]],
   use: {
     baseURL: 'http://127.0.0.1:4173',
     viewport: { width: 1440, height: 1000 },

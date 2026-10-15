@@ -1,0 +1,112 @@
+{
+  "recordedAt": "2026-10-15T10:01:13.347Z",
+  "url": "http://127.0.0.1:4173/",
+  "limits": {
+    "particleCap": 720,
+    "inFlight": 1,
+    "canvasPixels": 2510000,
+    "cpuP95Ms": 8,
+    "frameP95Ms": 33.5
+  },
+  "scope": "Short desktop Chromium benchmarks and mobile viewport emulation; fake capture device for model case. Not real-phone thermals or human recognition accuracy. CPU statistic is the maximum sampled rolling p95, not the whole-run p95.",
+  "results": [
+    {
+      "name": "desktop-fireworks",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "button": "#demo-fireworks",
+      "camera": false,
+      "sample": {
+        "durationSeconds": 30.00519999998808,
+        "frames": 1801,
+        "meanFps": 60.026730393013636,
+        "p95FrameIntervalMs": 16.799999999999272,
+        "p99FrameIntervalMs": 16.80000000000109,
+        "peakRollingCpuP95Ms": 0.8,
+        "peakParticles": 713,
+        "collisions": 889,
+        "burstCount": 48,
+        "maxInFlight": 0,
+        "inferenceFrames": 0,
+        "peakDisplayedInferenceMs": 0,
+        "canvasPixels": 1908699,
+        "finalQuality": "balanced",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "dpr": 2
+      },
+      "errors": []
+    },
+    {
+      "name": "mobile-rain",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "button": "#demo-rain",
+      "camera": false,
+      "sample": {
+        "durationSeconds": 30.007600000008942,
+        "frames": 1801,
+        "meanFps": 60.020528953810974,
+        "p95FrameIntervalMs": 16.799999999999272,
+        "p99FrameIntervalMs": 16.800000000000182,
+        "peakRollingCpuP95Ms": 0.4,
+        "peakParticles": 247,
+        "collisions": 0,
+        "burstCount": 0,
+        "maxInFlight": 0,
+        "inferenceFrames": 0,
+        "peakDisplayedInferenceMs": 0,
+        "canvasPixels": 505736,
+        "finalQuality": "balanced",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "dpr": 2
+      },
+      "errors": []
+    },
+    {
+      "name": "desktop-real-model-no-face",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "button": "#camera-button",
+      "camera": true,
+      "sample": {
+        "durationSeconds": 30.01220000000298,
+        "frames": 1801,
+        "meanFps": 60.012329018176686,
+        "p95FrameIntervalMs": 16.799999999999272,
+        "p99FrameIntervalMs": 16.80000000000109,
+        "peakRollingCpuP95Ms": 1.4,
+        "peakParticles": 0,
+        "collisions": 0,
+        "burstCount": 0,
+        "maxInFlight": 1,
+        "inferenceFrames": 384,
+        "peakDisplayedInferenceMs": 9,
+        "canvasPixels": 592900,
+        "finalQuality": "balanced",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+        "dpr": 1
+      },
+      "errors": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "desktop-fireworks",
+      "pass": true
+    },
+    {
+      "name": "mobile-rain",
+      "pass": true
+    },
+    {
+      "name": "desktop-real-model-no-face",
+      "pass": true
+    }
+  ]
+}
